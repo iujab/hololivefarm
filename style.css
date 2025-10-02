@@ -9,3 +9,19 @@ body {
 .green-text {
     color: rgb(0, 255, 0);
 }
+
+.center {
+    text-align: center;
+    margin-inline: auto;
+    width: auto;              
+    padding: 10px;
+}
+
+.ascii {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    white-space: pre;
+    font: 14px/1 monospace;
+}
