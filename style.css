@@ -1,27 +1,183 @@
+/* ---------- Color Palette ---------- */
+:root {
+  --yellow: #fceaa5;
+  --red: #e6647e;
+  --blue: #7acad4;
+
+  --bg: #fffef9;       /* soft yellowish white background */
+  --panel: #ffffff;
+  --text: #111111;
+  --muted: #444444;
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
 body {
-    background-color: black;
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  max-width: 1000px;
+  margin: 0 auto;
+  line-height: 1.4;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
-.white-text {
-    color: white;
+/* ---------- Background ---------- */
+@keyframes backgroundScroll {
+  from { background-position: 0 0; }
+  to { background-position: 100% 100%; }
 }
 
-.green-text {
-    color: rgb(0, 255, 0);
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: var(--bg);
+  background-image: url("assets/kbackground.svg");
+  animation: backgroundScroll 55s linear infinite;
 }
 
-.center {
-    text-align: center;
-    margin-inline: auto;
-    width: auto;              
-    padding: 10px;
+@keyframes backgroundScroll {
+  from { background-position: 0 0; }
+  to { background-position: 200vw 200vh; }
 }
 
-.ascii {
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0;
-    white-space: pre;
-    font: 14px/1 monospace;
+
+/* ---------- Card ---------- */
+.centered {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 4vh 4vw;
+}
+
+.card {
+  width: min(720px, 92vw);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: var(--panel);
+  border: 2px solid var(--yellow);
+  border-radius: 55px;
+  text-align: center;
+  box-shadow: 0 0 35px rgba(252,234,165,0.7);
+}
+
+/* ---------- Typography ---------- */
+h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.9rem, 4.5vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: var(--text);
+}
+
+.tagline {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+p { line-height: 1.7; }
+
+/* ---------- Links ---------- */
+a {
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.link-blue {
+  color: var(--blue);
+}
+.link-blue:hover {
+  color: #60bcd1;
+  text-decoration: underline;
+}
+
+.link-red {
+  color: var(--red);
+}
+.link-red:hover {
+  color: #d35570;
+  text-decoration: underline;
+}
+
+.links img {
+  width: 28px;     /* change to taste */
+  height: 28px;
+  object-fit: contain;
+  vertical-align: middle;
+  display: inline-block;
+  transition: opacity 0.2s ease, transform 0.2s ease; /* smooth animation */
+}
+
+.links img:hover {
+  opacity: 80;
+  transform: scale(1.1); /* small zoom-in */
+}
+
+/* ---------- Buttons ---------- */
+.links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.1rem;
+}
+
+.btn {
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.2rem;
+  display: inline-block;
+  font-weight: 600;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.accent-yellow {
+  color: var(--text);
+  background: var(--yellow);
+  border: 2px solid var(--yellow);
+}
+.accent-yellow:hover {
+  background: #fff5c7;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* Button text color overrides */
+.btn.accent-yellow.red-text {
+  color: #e6647e; /* red */
+}
+
+.btn.accent-yellow.blue-text {
+  color: #7acad4; /* blue */
+}
+
+/* ---------- Small Text ---------- */
+.small {
+  margin-top: 0.9rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .card { border-radius: 30px; }
 }
