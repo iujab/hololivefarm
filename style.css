@@ -49,12 +49,13 @@ body::before {
   z-index: -1;
   background-color: var(--bg);
   background-image: url("assets/kbackground.svg");
+  background-size: 500px 500px;
   animation: backgroundScroll 55s linear infinite;
 }
 
 @keyframes backgroundScroll {
   from { background-position: 0 0; }
-  to { background-position: 200vw 200vh; }
+  to { background-position: 500px 500px; }
 }
 
 
