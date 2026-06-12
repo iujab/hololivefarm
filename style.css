@@ -178,6 +178,14 @@ a {
   font-size: 0.95rem;
 }
 
+.email-link {
+  color: inherit;
+  font-weight: inherit;
+}
+.email-link:hover {
+  text-decoration: underline;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 600px) {
   .card { border-radius: 30px; }

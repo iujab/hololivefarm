@@ -11,11 +11,11 @@
   <main class="card" role="main" aria-label="Intro">
     <h1>NOAH ZHANG</h1>
     <p class="small" style="margin-top:-1rem;margin-bottom:0.75rem;">
-        noah7@illinois.edu
+        <a class="email-link" href="#" data-email="bm9haDdAaWxsaW5vaXMuZWR1">email me</a>
     </p>
     <p class="tagline">
-      Computer Engineering @ UIUC. SWE + ML @ Astiva Health<br>
-      I build practical things across hardware, ML, and full-stack.
+      Computer Engineering @ UIUC. SWE + ML @ Qualcomm.<br>
+      I build things across hardware, ML, and full-stack.
     </p>
 
     <p>
@@ -43,13 +43,23 @@
       <a class="red-text" href="https://github.com/iujab" target="_blank" rel="noopener noreferrer">
         <img src="assets/github-mark-red.svg" alt="GitHub">
       </a>
-      <a class="red-text" href="assets/NOAHZHANG_RESUME.pdf">
+      <!-- <a class="red-text" href="assets/NOAHZHANG_RESUME.pdf">
         <img src="assets/resume-icon-red.svg" alt="Resume">
-      </a>
+      </a> -->
       <a class="red-text" href="https://www.linkedin.com/in/noah-zhang-bb5aa9183/" target="_blank" rel="noopener noreferrer">
         <img src="assets/linkedin-icon-red.svg" alt="LinkedIn">
       </a>
     </div>
   </main>
+
+  <script>
+    // Decode the email at runtime so neither the address nor its parts
+    // appear in the page source — defeats scrapers that harvest raw HTML.
+    document.querySelectorAll('.email-link').forEach(function (a) {
+      var addr = atob(a.dataset.email);
+      a.href = 'mailto:' + addr;
+      a.textContent = addr;
+    });
+  </script>
 </body>
 </html>
